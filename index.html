@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | 83e-project-info.com</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo"><span>83e</span> Projects</a>
+            <ul class="nav-links">
+                <li><a href="#home" data-key="nav_home">Нүүр</a></li>
+                <li><a href="#about" data-key="nav_about">Тухай</a></li>
+                <li><a href="#projects" data-key="nav_projects">Төслүүд</a></li>
+                <li><a href="#contact" data-key="nav_contact">Холбоо барих</a></li>
+            </ul>
+            
+            <div class="lang-switch">
+                <button id="lang-mn" class="active">MN</button>
+                <button id="lang-en">EN</button>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1 id="hero_title">Сайн байна уу, Намайг <span>[Нэр]</span> гэдэг</h1>
+            <p id="hero_desc">Би бол вэб хөгжүүлэгч юм.</p>
+            <a href="#projects" class="btn" id="hero_btn">Миний ажлууд</a>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 data-key="nav_projects">Миний Төслүүд</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x250" alt="Project">
+                    <div class="project-info">
+                        <h3 data-key="p1_title">Төслийн нэр 1</h3>
+                        <p data-key="p1_desc">Энэ төслийн талаарх товч тайлбар.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
