@@ -1,109 +1,64 @@
 :root {
-  --secondary-color: #007bff; /* Энэ нь цэнхэр өнгө, чи хүссэн өнгөөрөө сольж болно */
-}
-/* Language Switcher Styles */
-.lang-switch {
-    display: flex;
-    gap: 5px;
-    margin-left: 20px;
+    --green: #00ff41;
+    --bg: #000000;
 }
 
-.lang-switch button {
-    background: none;
-    border: 1px solid var(--secondary-color);
-    color: var(--secondary-color);
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    transition: all 0.3s;
-}
-
-.lang-switch button.active {
-    background-color: var(--secondary-color);
-    color: white;
-}
-
-.lang-switch button:hover {
-    background-color: #e7f1ff;
-}
-/* Үндсэн биеийн загвар */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--green);
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    align-items: center; justify-content: center;
+    min-height: 100vh;
     margin: 0;
+    overflow: hidden;
+}
+
+.terminal-container {
+    width: 90%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+#output {
+    font-size: 16px;
     line-height: 1.6;
-    color: #333;
+    white-space: pre-wrap;
+    margin-bottom: 20px;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+.links-group {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Navbar буюу цэс */
-.navbar {
-    background: #2c3e50;
-    color: white;
-    padding: 1rem 0;
-}
-
-.navbar .container {
+.link-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li a {
-    color: white;
+    padding: 12px 15px;
+    border: 1px solid var(--green);
+    color: var(--green);
     text-decoration: none;
-    margin-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-/* Hero section буюу нүүр хэсэг */
-.hero {
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: #f4f4f4;
+.link-item:hover {
+    background: var(--green);
+    color: var(--bg);
 }
 
-.hero h1 span {
-    color: var(--secondary-color);
-}
+.htb { border-color: #9fef00; color: #9fef00; }
+.htb:hover { background: #9fef00; color: #000; }
 
-.btn {
+#cursor {
     display: inline-block;
-    background: var(--secondary-color);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
+    width: 10px; height: 18px;
+    background: var(--green);
+    animation: blink 0.8s infinite;
+    vertical-align: middle;
 }
 
-/* Төслүүдийн хэсэг */
-.project-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: 20px;
-    max-width: 400px;
-}
-
-.project-card img {
-    width: 100%;
-    height: auto;
-}
-
-.project-info {
-    padding: 15px;
-}
+@keyframes blink { 50% { opacity: 0; } }
