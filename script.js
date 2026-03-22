@@ -1,4 +1,6 @@
 const lines = [
+    "Portfolio",
+    ">----------------------------------",
     "> root@t3ng3r: ~# access_granted",
     "> starting_secure_session... [OK]",
     "> ---------------------------------",
