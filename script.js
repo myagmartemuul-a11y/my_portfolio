@@ -1,62 +1,48 @@
-// --- Professional Secure Terminal Script ---
-// Content Security Policy (CSP) compliant - No inline scripts allowed.
-
 const lines = [
     "> root@temuul: ~# access_granted",
     "> starting_secure_session... [OK]",
-    "> initializing_identity_protocol...",
     "> ---------------------------------",
     "> whoami",
     "  NAME: Temuul",
     "  ROLE: Cyber Security Researcher / Pentester",
     "  STATUS: Active - Ethical Hacking & Research",
     "> cat about_me.txt",
-    "  I am a security researcher focused on identifying",
-    "  vulnerabilities, network defense, and ethical hacking.",
-    "  Dedicated to building a more secure digital world.",
+    "  I focus on identifying vulnerabilities, network ",
+    "  defense, and building a secure digital world.",
     "> ---------------------------------",
     "> fetch_social_links --all",
-    "> loading_assets..."
+    "> visit_htb_profile --active"
 ];
 
 const output = document.getElementById('output');
 const links = document.getElementById('links');
-const cursor = document.getElementById('cursor');
 
 let lineIdx = 0;
 let charIdx = 0;
 
-/**
- * Аюулгүй байдлын үүднээс innerHTML-ийг шууд ашиглахаас илүү 
- * textContent эсвэл Node-оор дамжуулах нь XSS-ээс сэргийлнэ.
- */
 function typeEffect() {
     if (lineIdx < lines.length) {
         if (charIdx < lines[lineIdx].length) {
-            // Шинэ тэмдэгт нэмэх
+            // innerHTML биш append ашиглах нь XSS-ээс хамгаална
             output.append(lines[lineIdx].charAt(charIdx));
             charIdx++;
-            setTimeout(typeEffect, 40);
+            setTimeout(typeEffect, 30); // Хурдан шивнэ
         } else {
-            // Шинэ мөр рүү шилжих
             output.append("\n");
             lineIdx++;
             charIdx = 0;
-            setTimeout(typeEffect, 300);
+            setTimeout(typeEffect, 200);
         }
     } else {
-        // Процесс дуусахад курсорыг нууж, холбоосуудыг идэвхжүүлэх
-        if (cursor) cursor.style.display = 'none';
+        // Процесс дуусахад холбоосуудыг харуулж, автоматаар доош гүйлгэнэ
         if (links) {
             links.style.display = 'flex';
-            links.style.opacity = '1';
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     }
 }
 
-// DOM бүрэн ачаалсны дараа эхлүүлэх
 window.addEventListener('DOMContentLoaded', () => {
-    // Хэрэв өмнө нь ямар нэгэн текст байвал цэвэрлэх
     if (output) output.textContent = '';
     typeEffect();
 });
