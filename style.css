@@ -8,15 +8,17 @@ body {
     color: var(--green);
     font-family: 'Courier New', Courier, monospace;
     display: flex;
-    align-items: center; justify-content: center;
+    justify-content: center;
+    align-items: flex-start; /* Дээрээс нь эхэлнэ */
     min-height: 100vh;
     margin: 0;
-    overflow: hidden;
+    overflow-y: auto; /* Доошоо гүйлгэхийг зөвшөөрнө */
+    padding: 40px 0; /* Дээд доод талдаа зай авна */
 }
 
 .terminal-container {
     width: 90%;
-    max-width: 450px;
+    max-width: 650px;
     padding: 20px;
 }
 
@@ -24,13 +26,14 @@ body {
     font-size: 16px;
     line-height: 1.6;
     white-space: pre-wrap;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .links-group {
-    display: none;
+    display: none; /* JS ажиллаж дуустал нууцтай байна */
     flex-direction: column;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .link-item {
@@ -40,7 +43,6 @@ body {
     border: 1px solid var(--green);
     color: var(--green);
     text-decoration: none;
-    font-size: 14px;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -53,12 +55,7 @@ body {
 .htb { border-color: #9fef00; color: #9fef00; }
 .htb:hover { background: #9fef00; color: #000; }
 
-#cursor {
-    display: inline-block;
-    width: 10px; height: 18px;
-    background: var(--green);
-    animation: blink 0.8s infinite;
-    vertical-align: middle;
-}
-
-@keyframes blink { 50% { opacity: 0; } }
+/* Hacker style scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: var(--green); }
