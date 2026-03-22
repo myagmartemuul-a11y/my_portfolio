@@ -3,137 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
-    <title>Temk // Cyber Portfolio</title>
-    <style>
-        body {
-            background-color: #050505;
-            color: #00FF41;
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-        }
-        .lang-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-        .lang-btn {
-            background: none;
-            border: 1px dashed #00FF41;
-            color: #00FF41;
-            padding: 5px 10px;
-            cursor: pointer;
-            margin-left: 5px;
-        }
-        .lang-btn:hover { background: #00FF41; color: #000; }
-        .terminal-box {
-            border: 1px solid #00FF41;
-            padding: 30px;
-            background: rgba(0, 20, 0, 0.9);
-            box-shadow: 0 0 20px #00FF41;
-            max-width: 650px;
-            width: 90%;
-        }
-        h1 { font-size: 1.6rem; border-bottom: 1px solid #00FF41; padding-bottom: 10px; }
-        .highlight { color: #fff; text-shadow: 0 0 5px #00FF41; }
-        .social-links {
-            margin-top: 25px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-        .social-btn {
-            color: #00FF41;
-            text-decoration: none;
-            font-weight: bold;
-            border: 1px solid #00FF41;
-            padding: 8px 18px;
-            transition: 0.3s;
-        }
-        .social-btn:hover {
-            background: #00FF41;
-            color: #000;
-            box-shadow: 0 0 10px #00FF41;
-        }
-        .status-bar { font-size: 0.8rem; margin-bottom: 10px; width: 100%; display: flex; justify-content: space-between; }
-        .cursor { display: inline-block; width: 10px; height: 20px; background: #00FF41; animation: blink 1s infinite; vertical-align: middle; }
-        @keyframes blink { 50% { opacity: 0; } }
-    </style>
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests;">
+    
+    <title>Temuul | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="lang-switcher">
-        <button class="lang-btn" onclick="setLanguage('mn')">MN</button>
-        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+    <div class="terminal-container">
+        <div id="output"></div><span id="cursor"></span>
+
+        <nav class="links-group" id="links">
+            <a href="https://github.com/myagmartemuul-a11y" target="_blank" rel="noopener noreferrer" class="link-item">GITHUB _</a>
+            <a href="https://linkedin.com/in/Myagmar-Temuul" target="_blank" rel="noopener noreferrer" class="link-item">LINKEDIN _</a>
+            <a href="https://instagram.com/temkstre" target="_blank" rel="noopener noreferrer" class="link-item">INSTAGRAM _</a>
+            <a href="https://www.hackthebox.com/users/https://profile.hackthebox.com/profile/019c421d-b8f4-72f7-a85f-7bd189205c9a" target="_blank" rel="noopener noreferrer" class="link-item htb">HACKTHEBOX _</a>
+        </nav>
     </div>
 
-    <div class="terminal-box">
-        <div class="status-bar">
-            <span>[STATUS: <span class="highlight">ONLINE</span>]</span>
-            <span>[AUTH: <span class="highlight">RESEARCHER</span>]</span>
-        </div>
-        
-        <p id="prompt">> root@temk:~# whoami</p>
-        <h1 id="title">Сайн байна уу, намайг Тэмүүл гэдэг.</h1>
-        
-        <p id="bio1">> Би <span class="highlight">Cybersecurity</span> чиглэлээр суралцаж байна.</p>
-        <p id="bio2">> Сонирхол: Ethical Hacking, Linux, Network Security.</p>
-        <p id="bio3">> Холбогдох сувгууд:</p>
-        
-        <div class="social-links">
-            <a href="https://github.com/myagmartemuul-a11y" target="_blank" rel="noopener noreferrer" class="social-btn" id="github-btn">GITHUB</a>
-            <a href="https://www.linkedin.com/in/Myagmar Temuul" target="_blank" rel="noopener noreferrer" class="social-btn" id="linkedin-btn">LINKEDIN</a>
-            <a href="https://www.instagram.com/temkstre" target="_blank" rel="noopener noreferrer" class="social-btn" id="instagram-btn">INSTAGRAM</a>
-        </div>
-        <br>
-        <span class="cursor"></span>
-    </div>
-
-    <script>
-        const translations = {
-            mn: {
-                prompt: "> root@temk:~# whoami",
-                title: "Сайн байна уу, намайг Тэмүүл гэдэг.",
-                bio1: "> Би <span class='highlight'>Cybersecurity</span> чиглэлээр суралцаж байна.",
-                bio2: "> Сонирхол: Ethical Hacking, Linux, Network Security.",
-                bio3: "> Миний сувгуудаар зочлох:",
-                github: "GITHUB-ААР ЗОЧЛОХ",
-                linkedin: "LINKEDIN ХОЛБОГДОХ",
-                instagram: "INSTAGRAM ХАРАХ"
-            },
-            en: {
-                prompt: "> root@temk:~# whoami",
-                title: "Hello, my name is Temuul.",
-                bio1: "> I am a <span class='highlight'>Cybersecurity</span> in training.",
-                bio2: "> Interests: Ethical Hacking, Linux, Network Security.",
-                bio3: "> Visit my profiles:",
-                github: "VISIT GITHUB",
-                linkedin: "CONNECT ON LINKEDIN",
-                instagram: "VIEW INSTAGRAM"
-            }
-        };
-
-        function setLanguage(lang) {
-            document.getElementById('prompt').innerHTML = translations[lang].prompt;
-            document.getElementById('title').innerHTML = translations[lang].title;
-            document.getElementById('bio1').innerHTML = translations[lang].bio1;
-            document.getElementById('bio2').innerHTML = translations[lang].bio2;
-            document.getElementById('bio3').innerHTML = translations[lang].bio3;
-            document.getElementById('github-btn').innerText = translations[lang].github;
-            document.getElementById('linkedin-btn').innerText = translations[lang].linkedin;
-            document.getElementById('instagram-btn').innerText = translations[lang].instagram;
-            localStorage.setItem('preferredLang', lang);
-        }
-
-        const savedLang = localStorage.getItem('preferredLang') || 'mn';
-        setLanguage(savedLang);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
